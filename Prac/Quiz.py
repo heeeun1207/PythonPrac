@@ -9,4 +9,5 @@
 # (출력문 예제)
 # 오프라인 스터디 모임 날짜는 매월 x 일로 선정되었습니다. 
 from random import *
-print(str("오프라인 스터티 모임 날짜는 매월" ) + randrange(3, 28) + str( "일로 선정되었습니다.")) 
+date = randint(4, 28)
+print("오프라인 스터디 모임 날짜는 매월 " + str(date) + " 일로 선정되었습니다. ")
