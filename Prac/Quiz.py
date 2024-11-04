@@ -77,14 +77,40 @@ print("커피 당첨자 : {0}".format(winners[1:]))
 
 # 총 탑승 승객 : x 분 
 
-from random import *
-cnt = 0  # 총 탑승 승객 수 
-for i in range(1, 50) : # 1~50
-    time = randrange(5, 51) # 시간이 5분에서 ~50분 소요 
-    if 5 <= time <= 15 : # 5분에서 15분 사이 매칭 성공시, 카운트 누적합 필요 
-        print("[O] {0}번째 손님 (소요시간 : {1}분)" .format(i, time))
-        cnt += 1 
-    else: # 매칭이 실패한 경우 
-        print("[] {0}번째 손님 (소요시간 : {1}분)" .format(i, time))
+# from random import *
+# cnt = 0  # 총 탑승 승객 수 
+# for i in range(1, 50) : # 1~50
+#     time = randrange(5, 51) # 시간이 5분에서 ~50분 소요 
+#     if 5 <= time <= 15 : # 5분에서 15분 사이 매칭 성공시, 카운트 누적합 필요 
+#         print("[O] {0}번째 손님 (소요시간 : {1}분)" .format(i, time))
+#         cnt += 1 
+#     else: # 매칭이 실패한 경우 
+#         print("[] {0}번째 손님 (소요시간 : {1}분)" .format(i, time))
 
-print(" 총 탑승 승객 : {0} 분" .format(cnt))
+# print(" 총 탑승 승객 : {0} 분" .format(cnt))
+
+
+#6
+# 표준 체중을 구하는 프로그램을 작성하시오 
+
+# (성별에 따른 공식)
+# 남자 : 키(m) x 키(m) x 22
+# 여자 : 키(m) x 키(m) x 21
+
+# 조건 1 : 표준 체중은 별도의 함수 내에서 계산
+# 조건 2 : 표준 체중은 소수점 둘째자리까지 표시
+
+# (출력 예제)
+# 키 175cm 남자의 표준 체중은 67.38kg 입니다. 
+
+def std_weight(height, gender): # m 단위로 (실수), 성별 "남자" / "여자"
+  if gender == "남자":
+    return height * height * 22
+  else : 
+    return height * height * 21
+
+height = 163 # cm 단위
+gender = "여자"
+weight =round(std_weight(height / 100, gender), 2)
+print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다. ".format(height, gender, weight))
+
