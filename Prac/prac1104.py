@@ -100,12 +100,6 @@
 
 #** 클래스
 class Unit:
-    """
-    C0115: missing-class-docstring" 경고로, 
-    클래스 정의에 대한 docstring이 누락됨을 나타냄.
-    Python에서 docstring은 클래스, 함수, 모듈 등의 설명을 제공하는 문자열로,
-    주로 클래스의 목적이나 사용법을 설명하는 데 사용됨
-    """
     def __init__(self, name, hp, damage):
         self.name = name
         self.hp = hp
@@ -113,16 +107,26 @@ class Unit:
         print("{0} 유닛이 생성 되었습니다.".format(self.name))
         print("체력{0}, 공격력 {1}".format(self.hp, self.damage))
 
-# marine1 = Unit("마린", 40, 5)
-# marine2 = Unit("마린", 40, 5)
-# tank = Unit("탱크", 150, 35)
+# 공격 유닛
+class AttackUnit:
+    def __init__(self, name, hp, damage):
+        self.name = name
+        self.hp = hp
+        self.damage = damage
 
-#* 멤버 변수
-# wraith1= Unit("레이스", 80, 5)
-# print("유닛 이름 : {0}, 공격력 : {1}".format(wraith1.name, wraith1.damage))
+    def attack(self, location):
+        print("{0} : {1} 방향으로 적군을 공격합니다. [공격력 {2}]"\
+            .format(self.name, location, self.damage))
 
-# wraith2 = Unit("빼앗은 레이스", 80, 5)
-# wraith2.clocking = True
+    def damaged(self, damage):
+        print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{0} : 현재 체력은 {1} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{0} : 파괴되었습니다.".format(self.name))
 
-# if wraith2.clocking == True: #wraith2에만 변수 추가
-#     print("{0} 는 현재 클로킹 상태입니다.".format(wraith2.name))
+firebat1 = AttackUnit("파이어뱃", 50, 16)
+firebat1.attack("5시")
+
+firebat1.damaged(25)
+firebat1.damaged(25)
