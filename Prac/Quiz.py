@@ -13,7 +13,7 @@ date = randint(4, 28)
 print("오프라인 스터디 모임 날짜는 매월 " + str(date) + " 일로 선정되었습니다. ")
 
 
-#02 
+#!02 
 # 사이트별로 비밀번호를 만들어 주는 프로그램을 작성하시오.
 # 규칙 1 : http:// 부분은 제외 
 # 규칙 2 : 처음 만나는 점(.) 이후를 제외 
@@ -28,7 +28,7 @@ print(password)
 print("{0}의 비밀번호는 {1} 입니다." .format(url, password))
 
 
-#03 
+#!03 
 # 댓글 이벤트를 진행한다.
 # 댓글 작성자 중에서 추첨을 통해 1명은 치킨, 3명은 커피 쿠폰을 받는다.
 # 추첨 프로그램을 작성하시오.
@@ -62,7 +62,7 @@ print("치킨 당첨자 : {0}".format(winners[0]))
 print("커피 당첨자 : {0}".format(winners[1:]))
 
 
-#05
+#!05
 # 50명의 승객과 매칭 기회가 있을 때, 총 탑승 승객 수를 구하는 프로그램을 작성하시오.
 
 # 조건1 : 승객별 운행 소요 시간은 5분 ~ 50분 사이의 난수로 정해진다.
@@ -90,7 +90,7 @@ print("커피 당첨자 : {0}".format(winners[1:]))
 # print(" 총 탑승 승객 : {0} 분" .format(cnt))
 
 
-#6
+#!06
 # 표준 체중을 구하는 프로그램을 작성하시오 
 
 # (성별에 따른 공식)
@@ -103,14 +103,32 @@ print("커피 당첨자 : {0}".format(winners[1:]))
 # (출력 예제)
 # 키 175cm 남자의 표준 체중은 67.38kg 입니다. 
 
-def std_weight(height, gender): # m 단위로 (실수), 성별 "남자" / "여자"
-  if gender == "남자":
-    return height * height * 22
-  else : 
-    return height * height * 21
+# def std_weight(height, gender): # m 단위로 (실수), 성별 "남자" / "여자"
+#   if gender == "남자":
+#     return height * height * 22
+#   else : 
+#     return height * height * 21
 
-height = 163 # cm 단위
-gender = "여자"
-weight =round(std_weight(height / 100, gender), 2)
-print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다. ".format(height, gender, weight))
+# height = 163 # cm 단위
+# gender = "여자"
+# weight =round(std_weight(height / 100, gender), 2)
+# print("키 {0}cm {1}의 표준 체중은 {2}kg 입니다. ".format(height, gender, weight))
+
+#!07
+# 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있다.
+# 보고서는 항상 아래와 같은 형식으로 출력되야 한다.
+
+# - X 주차 주간보고 -
+# 부서 :
+# 부서 :
+# 업무 요약 :
+
+# 1주차 부터 50주차 까지 보고서 파일을 만드는 프로그램을 작성하시오.
+# 조건: 파일명은 '1주차.txt', '2주차.txt', ... 와 같이 만든다. 
+for i in range(1, 4):
+    with open(str(i) + "주차.txt", "w", encoding="utf8") as report_file:
+        report_file.write(" - {0} 주차 주간보고 -".format(i))
+        report_file.write("\n부서 : ")
+        report_file.write("\n업무 요약 : ")
+
 

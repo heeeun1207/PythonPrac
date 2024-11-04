@@ -80,3 +80,4 @@ print(menu, type(menu)) # <class 'set'>
 
 menu = list(menu) 
 print(menu, type(menu)) # <class 'list'>
+

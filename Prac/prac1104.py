@@ -86,3 +86,15 @@
 # # 불러온 객체의 속성 확인
 # print(f"이름: {loaded_person.name}, 나이: {loaded_person.age}")
 
+#* with  
+# import pickle
+# with open("profile.pickle", "rb") as profile_file:
+#   print(pickle.load(profile_file))
+
+# with open("study.txt", "w", encoding="utf8") as study_file:
+    # study_file.write("파일 만들고 글 쓰기")
+
+# 파일 글 가져오기 
+# with open("study.txt", "r", encoding="utf8") as study_file: 
+#   print(study_file.read())
+
