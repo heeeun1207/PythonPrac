@@ -1,1 +1,1 @@
-[![피그마 썸네일](Python_Prac1104.png)]
+[![클래스 구조](Python_Prac1104.png)]
