@@ -49,19 +49,36 @@
 #     print("계산기를 이용해 주셔서 감사합니다.")
 
 #*모듈
-import theater_module
-theater_module.price(3)
-theater_module.price_morning(4)
-theater_module.price_soldier(5)
+# import theater_module
+# theater_module.price(3)
+# theater_module.price_morning(4)
+# theater_module.price_soldier(5)
 
-import theater_module as mv
-mv.price(3)
-mv.price_morning(3)
-mv.price_soldier(3)
+# import theater_module as mv
+# mv.price(3)
+# mv.price_morning(3)
+# mv.price_soldier(3)
 
-from theater_module import *
-price(3)
-price_morning(3)
-price_soldier(3)
+# from theater_module import *
+# price(3)
+# price_morning(3)
+# price_soldier(3)
 
+#* 패키지
+# import travel.thailand #! 마지막은 모듈이나 패키지만 올수있다.
+# trip_to = travel.thailand.ThailandPackage()
+# trip_to.detail()
+
+# from travel.thailand import ThailandPackage #! 모듈 패키지 클래스함수 모두 가져올 수 있음.
+# trip_to = ThailandPackage()
+# trip_to.detail()
+
+# from travel import vietnam
+# trip_to = vietnam.VietnamPackage()
+# trip_to.detail()
+
+# from random import *
+# from travel import * #! __init__.py 에 추가 
+# trip_to = thailand.ThailandPackage()
+# trip_to.detail()
 
