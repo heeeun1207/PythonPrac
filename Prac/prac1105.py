@@ -78,7 +78,7 @@
 # trip_to.detail()
 
 # from random import *
-# from travel import * #! __init__.py 에 추가 
-# trip_to = thailand.ThailandPackage()
-# trip_to.detail()
+from travel import * #! __init__.py 에 추가 
+trip_to = thailand.ThailandPackage()
+trip_to.detail()
 
