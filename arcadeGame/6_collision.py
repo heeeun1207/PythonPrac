@@ -85,6 +85,20 @@ while running:
   elif character_y_pos > screen_height - character_height:
     character_y_pos = screen_height - character_height
 
+  # 충돌 처리
+  character_rect = character.get_rect()
+  character_rect.left = character_x_pos
+  character_rect.top = character_y_pos
+  
+  enemy_rect = enemy.get_rect()
+  enemy_rect.left = enemy_x_pos
+  enemy_rect.top = enemy_y_pos
+  
+  # 충돌 체크
+  if character_rect.colliderect(enemy_rect):
+    print("충돌 했어요!!")
+    running = False
+
   screen.blit(background, (0, 0)) # 배경 그리기
 
   screen.blit(character, (character_x_pos, character_y_pos)) # 캐릭터 그리기 
