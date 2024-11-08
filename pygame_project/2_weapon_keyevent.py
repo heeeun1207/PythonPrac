@@ -97,6 +97,7 @@ while running:
   screen.blit(background, (0, 0))
     
   # 무기 그리기 (캐릭터 위에서 나와야함)
+  #! 캐릭터 머리위에서 나올 수 있는 방법은? 
   for weapon_x_pos , weapon_y_pos in weapons:
     screen.blit(weapon, (weapon_x_pos, weapon_y_pos))
   # 스테이지
