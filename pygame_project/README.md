@@ -1,5 +1,10 @@
 # Project 오락실 게임
 
+```
+python -m pip install beautifulsoup4
+python -m pip install pygame
+```
+
 [게임 조건]
 1. 캐릭터는 화면 아래에 위치, 좌우로만 이동 가능
 2. 스페이스를 누르면 무기를 쏘아 올림
