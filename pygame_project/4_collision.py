@@ -1,7 +1,3 @@
-# 1. 모든 공을 없애면 게임 종료 (성공)
-# 2. 캐릭터는 공에 닿으면 게임 종료 (실패)
-# 3. 시간 제한 99초 초과 시 게임 종료 (실패)
-
 import os
 import pygame
 ###########################################################################
@@ -55,7 +51,7 @@ weapon_width = weapon_size[0] # 캐릭터 중앙에서 발사
 weapons = []
 
 # 무기 이동 속도
-weapon_speed = 10 
+weapon_speed = 10
 
 # 공 만들기 (4개 크기에 대해 따로 처리)
 ball_images = [
@@ -65,7 +61,7 @@ ball_images = [
   pygame.image.load(os.path.join(image_path, "balloon4.png"))]
 
 # 공 크기에 따른 최초 스피드 
-ball_speed_y = [-18, -15, -12, -9] # index 0,1,2,3 에 해당하는 값
+ball_speed_y = [-20, -18, -16, -14] # index 0,1,2,3 에 해당하는 값
 
 # 공들
 balls = [] 
@@ -85,7 +81,7 @@ ball_to_remove = -1
 
 # Font 정의
 game_font = pygame.font.Font(None, 40)
-total_time = 10
+total_time = 100
 start_ticks = pygame.time.get_ticks() # 시작 시간 정의
 
 # 게임 종료 메시지
@@ -233,6 +229,11 @@ while running:
   if weapon_to_remove > -1:
     del weapons[weapon_to_remove]
     weapon_to_remove = -1 
+    
+  # 모든 공을 없앤 경우 게임 종료 (성공)
+  if len(balls) == 0:
+    game_result = "Mission Complete"
+    running = False
         
   #* 5. 화면에 그리기
   screen.blit(background, (0, 0))
