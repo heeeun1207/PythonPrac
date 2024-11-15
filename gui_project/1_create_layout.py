@@ -80,6 +80,17 @@ p_var = DoubleVar()
 progress_bar = ttk.Progressbar(frame_progress, maximum=100, variable=p_var)
 progress_bar.pack(fill="x")
 
+# 실행 프레임
+frame_run = Frame(root)
+frame_run.pack(fill="x")
+
+btn_close = Button(frame_run, padx=5, pady=5, text="닫기", width=12, command=root.quit)
+btn_close.pack(side="right")
+
+btn_start = Button(frame_run, padx=5, pady=5, text="시작", width=12)
+btn_start.pack(side="right")
+
+
 root.resizable(False, False)
 root.mainloop()
 
