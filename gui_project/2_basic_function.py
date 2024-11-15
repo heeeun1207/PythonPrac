@@ -41,8 +41,13 @@ def start():
 
   # 파일 목록 확인
   if list_file.size() == 0:
-    msgbox.showwarning("경고", "이미지 파일을 추가하세요")
+    msgbox.showwarning("경고", "이미지 파일을 추가하세요.")
     return
+  
+  # 저장 경로 확인
+  if len(txt_dest_path.get()) == 0:
+    msgbox.showwarning("경고", "저장 경로를 선택하세요.")
+    return    
     
 # 파일 프레임 (파일 추가, 선택 삭제)
 file_frame = Frame(root)
