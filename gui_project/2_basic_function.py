@@ -18,7 +18,9 @@ def add_file():
     
 # 선택 삭제
 def del_file():
-  pass
+  # print(list_file.curselection()) # (0, 1) #! 뒤에서부터 지워야 한다. 
+  for index in reversed(list_file.curselection()):
+    list_file.delete(index)
 
 # 파일 프레임 (파일 추가, 선택 삭제)
 file_frame = Frame(root)
