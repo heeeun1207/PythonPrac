@@ -3,6 +3,7 @@ import tkinter.messagebox as msgbox
 from tkinter import * # __all__ 
 # filedialog : 서브모듈이므로 명시적으로 불러와야함.
 from tkinter import filedialog
+from PIL import Image
 
 root = Tk()
 root.title("GUI program")
@@ -34,8 +35,17 @@ def browse_dest_path():
 
 # 이미지 통합
 def merge_image():
-  print(list_file.get(0, END)) # 모든 파일 목록 가지고 오기 
-
+  # print(list_file.get(0, END)) # 모든 파일 목록 가지고 오기 
+  images = [Image.open(x) for x in list_file.get(0, END)]
+  # size -> size[0] : width, size[1] : height 
+  widths = [x.size[0] for x in images]
+  heights = [x.size[1] for x in images]
+  
+  print("widths :", widths)
+  print("heights :", heights)
+  # widths : [1080, 1080, 1080, 1080, 1080, 1080]
+  # heights : [1440, 1440, 1440, 1440, 1440, 1440]
+  
 # 시작 
 def start():
   # 각 옵션들 값을 확인
