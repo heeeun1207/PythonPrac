@@ -10,14 +10,12 @@ root.title("GUI program")
 def add_file():
   files = filedialog.askopenfilenames(title="이미지 파일을 선택하세요.", \
     filetypes=(("PNG 파일", "*png"),("모든 파일", "*.*")), \
-    initialdir="C:/") # 최초에 C:/ 경로를 보여줌
+    initialdir=r"/Users/heeeun/Desktop/배경화면/") # 최초에 C:/ 경로를 보여줌
 
   # 사용자가 선택한 파일 목록 출력
   for file in files:
-    print(file)
-    # /Users/heeeun/Desktop/배경화면/
-    # /Users/heeeun/Desktop/배경화면/
-    # /Users/heeeun/Desktop/배경화면/
+    list_file.insert(END, file)
+    
 # 선택 삭제
 def del_file():
   pass
