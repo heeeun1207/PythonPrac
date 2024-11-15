@@ -1,13 +1,23 @@
 import tkinter.ttk as ttk 
-from tkinter import *
+from tkinter import * # __all__ 
+# filedialog : 서브모듈이므로 명시적으로 불러와야함.
+from tkinter import filedialog
 
 root = Tk()
 root.title("GUI program")
 
 # 파일 추가 
 def add_file():
-  pass
+  files = filedialog.askopenfilenames(title="이미지 파일을 선택하세요.", \
+    filetypes=(("PNG 파일", "*png"),("모든 파일", "*.*")), \
+    initialdir="C:/") # 최초에 C:/ 경로를 보여줌
 
+  # 사용자가 선택한 파일 목록 출력
+  for file in files:
+    print(file)
+    # /Users/heeeun/Desktop/배경화면/
+    # /Users/heeeun/Desktop/배경화면/
+    # /Users/heeeun/Desktop/배경화면/
 # 선택 삭제
 def del_file():
   pass
