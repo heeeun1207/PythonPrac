@@ -15,12 +15,21 @@ def add_file():
   # 사용자가 선택한 파일 목록 출력
   for file in files:
     list_file.insert(END, file)
-    
+
 # 선택 삭제
 def del_file():
   # print(list_file.curselection()) # (0, 1) #! 뒤에서부터 지워야 한다. 
   for index in reversed(list_file.curselection()):
     list_file.delete(index)
+
+# 저장 경로 (폴더)
+def browse_dest_path():
+  folder_selected = filedialog.askdirectory()
+  if folder_selected == "": # 사용자가 취소를 누를 때 
+    return
+  # print(folder_selected)
+  txt_dest_path.delete(0, END)
+  txt_dest_path.insert(0, folder_selected)
 
 # 파일 프레임 (파일 추가, 선택 삭제)
 file_frame = Frame(root)
@@ -50,7 +59,7 @@ path_frame.pack(fill="x", padx=5, pady=5, ipady=5)
 txt_dest_path = Entry(path_frame)
 txt_dest_path.pack(side="left", fill="x", expand=True, padx=5, pady=5, ipady=4) # 높이 변경
 
-btn_dest_path = Button(path_frame, text="찾아보기", width=10)
+btn_dest_path = Button(path_frame, text="찾아보기", width=10, command=browse_dest_path)
 btn_dest_path.pack(side="right", padx=5, pady=5)
 
 # 옵션 프레임
