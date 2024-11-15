@@ -6,7 +6,7 @@ root.title("GUI program")
 
 # 파일 프레임 (파일 추가, 선택 삭제)
 file_frame = Frame(root)
-file_frame.pack()
+file_frame.pack(fill="x")
 
 btn_add_file = Button(file_frame, padx=5, pady=5, width=12, text="파일추가")
 btn_add_file.pack(side="left")
@@ -27,7 +27,7 @@ scrollbar.config(command=list_file.yview)
 
 # 저장 경로 프레임
 path_frame = LabelFrame(root, text="저장경로")
-path_frame.pack()
+path_frame.pack(fill="x")
 
 txt_dest_path = Entry(path_frame)
 txt_dest_path.pack(side="left", fill="x", expand=True, ipady=4) # 높이 변경
@@ -71,6 +71,14 @@ opt_format = ["PNG", "JPG", "BMP"]
 cmb_format = ttk.Combobox(frame_option, state="readonly", values=opt_space, width=10)
 cmb_format.current(0)
 cmb_format.pack(side="left")
+
+# 진행 상황 Progress Bar
+frame_progress = LabelFrame(root, text="진행상황")
+frame_progress.pack(fill="x")
+
+p_var = DoubleVar()
+progress_bar = ttk.Progressbar(frame_progress, maximum=100, variable=p_var)
+progress_bar.pack(fill="x")
 
 root.resizable(False, False)
 root.mainloop()
