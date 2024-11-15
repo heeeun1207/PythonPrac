@@ -1,4 +1,5 @@
 import tkinter.ttk as ttk 
+import tkinter.messagebox as msgbox
 from tkinter import * # __all__ 
 # filedialog : 서브모듈이므로 명시적으로 불러와야함.
 from tkinter import filedialog
@@ -31,6 +32,18 @@ def browse_dest_path():
   txt_dest_path.delete(0, END)
   txt_dest_path.insert(0, folder_selected)
 
+# 시작 
+def start():
+  # 각 옵션들 값을 확인
+  print("가로넓이 : ", cmb_width.get())
+  print("간격 : ", cmb_space.get())
+  print("포맷 : ", cmb_format.get())
+
+  # 파일 목록 확인
+  if list_file.size() == 0:
+    msgbox.showwarning("경고", "이미지 파일을 추가하세요")
+    return
+    
 # 파일 프레임 (파일 추가, 선택 삭제)
 file_frame = Frame(root)
 file_frame.pack(fill="x", padx=5, pady=5)
@@ -114,7 +127,7 @@ frame_run.pack(fill="x", padx=5, pady=5)
 btn_close = Button(frame_run, padx=5, pady=5, text="닫기", width=12, command=root.quit)
 btn_close.pack(side="right", padx=5, pady=5)
 
-btn_start = Button(frame_run, padx=5, pady=5, text="시작", width=12)
+btn_start = Button(frame_run, padx=5, pady=5, text="시작", width=12, command=start)
 btn_start.pack(side="right", padx=5, pady=5)
 
 
