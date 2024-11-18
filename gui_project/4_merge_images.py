@@ -39,21 +39,17 @@ def merge_image():
   # print(list_file.get(0, END)) # 모든 파일 목록 가지고 오기 
   images = [Image.open(x) for x in list_file.get(0, END)]
   # size -> size[0] : width, size[1] : height 
-  widths = [x.size[0] for x in images]
-  heights = [x.size[1] for x in images]
+  # widths = [x.size[0] for x in images]
+  # heights = [x.size[1] for x in images]
   
-  # print("widths :", widths)
-  # print("heights :", heights)
-  # widths : [1080, 1080, 1080, 1080, 1080, 1080]
-  # heights : [1440, 1440, 1440, 1440, 1440, 1440]
+  # [(10, 10), (20, 20), (30, 30)]
+  widths, heights =zip(*(x.size for x in images))
   
   # 최대 넓이, 전체 높이 구하기 
   max_width, total_height = max(widths), sum(heights)
   print("max width :", max_width)
   print("total width :", total_height)
-  # max width : 1080
-  # total width : 8640  
-  
+
   # 스케치북 준비
   result_img = Image.new("RGB", (max_width, total_height), (255, 255, 255)) # 배경 흰색
   y_offset = 0 # y 위치 정보
