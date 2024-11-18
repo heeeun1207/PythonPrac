@@ -1,3 +1,4 @@
+import os 
 import tkinter.ttk as ttk 
 import tkinter.messagebox as msgbox
 from tkinter import * # __all__ 
@@ -41,10 +42,28 @@ def merge_image():
   widths = [x.size[0] for x in images]
   heights = [x.size[1] for x in images]
   
-  print("widths :", widths)
-  print("heights :", heights)
+  # print("widths :", widths)
+  # print("heights :", heights)
   # widths : [1080, 1080, 1080, 1080, 1080, 1080]
   # heights : [1440, 1440, 1440, 1440, 1440, 1440]
+  
+  # 최대 넓이, 전체 높이 구하기 
+  max_width, total_height = max(widths), sum(heights)
+  print("max width :", max_width)
+  print("total width :", total_height)
+  # max width : 1080
+  # total width : 8640  
+  
+  # 스케치북 준비
+  result_img = Image.new("RGB", (max_width, total_height), (255, 255, 255)) # 배경 흰색
+  y_offset = 0 # y 위치 정보
+  for img in images :
+    result_img.paste(img, (0, y_offset))
+    y_offset += img.size[1] # height 값 만큼 더하기
+    
+  dest_path = os.path.join(txt_dest_path.get(), "photo.jpg")
+  result_img.save(dest_path)
+  msgbox.showinfo("알림", "작업이 완료되었습니다.")
   
 # 시작 
 def start():
