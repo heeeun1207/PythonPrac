@@ -11,6 +11,11 @@ filename = "시가총액 1-200.csv"
 f = open(filename, "w", encoding="utf-8-sig", newline="")
 writer = csv.writer(f)
 
+title = "N	종목명	현재가	전일비	등락률	액면가	시가총액	상장주식수	외국인비율	거래량	PER	ROE	토론실".split("\t")
+# ["N","종목명", "현재가", ...]
+# print(type(title)) # <class 'list'>
+writer.writerow(title)
+
 for page in range(1, 5):
   res = requests.get(url + str(page))
   res.raise_for_status()
