@@ -13,7 +13,9 @@ for page in range(1, 2):
   data_rows = soup.find("table", attrs={"class":"type_2"}).find("tbody").find_all("tr")
   for row in data_rows:
     columns = row.find_all("td")
-    data = [column.get_text() for column in columns]
+    if len(columns) <= 1: # 의미 없는 데이터 skip 
+      continue
+    data = [column.get_text().strip() for column in columns]
     print(data)
     
     
