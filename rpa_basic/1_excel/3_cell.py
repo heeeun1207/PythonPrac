@@ -29,10 +29,10 @@ from random import *
 
 # 반복문 이용해서 랜덤 숫자 채우기
 index = 1
-# for x in range(1, 11):
-#   for y in range(1, 11):
-for y in range(1,11):
-  for x in range(1,11):
+for x in range(1, 11):
+  for y in range(1, 11):
+# for y in range(1,11):
+#   for x in range(1,11):
     # ws.cell(row=x, column=y, value=randint(0, 100)) # 0~100 사이의 숫자 
     ws.cell(row=x, column=y, value=index)
     index +=1
